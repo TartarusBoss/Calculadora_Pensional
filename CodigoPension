@@ -1,0 +1,4 @@
+class CalculadoraPensional:
+
+    def calculo_ahorro_pensional(self, edad, salario, semanas_laboradas, ahorro_pensional, rentabilidad_fondo, tasa_administracion):
+        return ahorro_pensional + (salario * semanas_laboradas * rentabilidad_fondo) - (tasa_administracion * ahorro_pensional)
