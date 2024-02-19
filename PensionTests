@@ -1,0 +1,36 @@
+import unittest
+from CodigoPension import CalculadoraPensional
+
+class TestAhorroPensional(unittest.TestCase):
+    #Normales
+    def setUp(self) -> None:
+        self.calculadora = CalculadoraPensional()
+
+    def test_ahorro_pensional_empleado_promedio(self):
+        resultado = self.calculadora.calculo_ahorro_pensional(edad = 45, salario = 50000, semanas_laboradas = 400, ahorro_pensional = 10000, rentabilidad_fondo = 0.05, tasa_administracion = 0.02)
+        resultado_esperado = 1009800
+        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
+
+    def test_ahorro_pensional_empleado_joven(self):
+        resultado = self.calculadora.calculo_ahorro_pensional(edad = 25, salario = 30000, semanas_laboradas = 180, ahorro_pensional = 5000, rentabilidad_fondo = 0.08, tasa_administracion = 0.02)    
+        resultado_esperado = 436900
+        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
+
+    def test_ahorro_pensional_empleado_cercano_jubilacion(self):
+        resultado = self.calculadora.calculo_ahorro_pensional(edad = 58, salario = 70000, semanas_laboradas = 2080, ahorro_pensional = 150000, rentabilidad_fondo = 0.06, tasa_administracion = 0.02)
+        resultado_esperado = 8883000 
+        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
+
+    def test_ahorro_pensional_tasa_administracion_baja(self):
+        resultado = self.calculadora.calculo_ahorro_pensional(edad = 55, salario = 60000, semanas_laboradas = 1825, ahorro_pensional = 200000, rentabilidad_fondo = 0.06, tasa_administracion = 0.01)
+        resultado_esperado = 6768000
+        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
+
+    def test_ahorro_pensional_empleado_pocas_semanas(self):
+        resultado = self.calculadora.calculo_ahorro_pensional(edad = 30, salario = 40000, semanas_laboradas = 120, ahorro_pensional = 20000, rentabilidad_fondo = 0.05, tasa_administracion = 0.02)
+        resultado_esperado = 259600
+        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
+    
+
+if __name__ == '__main__':
+        unittest.main()
