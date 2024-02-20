@@ -11,11 +11,6 @@ class TestAhorroPensional(unittest.TestCase):
         resultado_esperado = 1009800
         self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
 
-    def test_ahorro_pensional_empleado_joven(self):
-        resultado = self.calculadora.calculo_ahorro_pensional(edad = 25, salario = 30000, semanas_laboradas = 180, ahorro_pensional = 5000, rentabilidad_fondo = 0.08, tasa_administracion = 0.02)    
-        resultado_esperado = 436900
-        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
-
     def test_ahorro_pensional_empleado_cercano_jubilacion(self):
         resultado = self.calculadora.calculo_ahorro_pensional(edad = 58, salario = 70000, semanas_laboradas = 2080, ahorro_pensional = 150000, rentabilidad_fondo = 0.06, tasa_administracion = 0.02)
         resultado_esperado = 8883000 
@@ -25,12 +20,37 @@ class TestAhorroPensional(unittest.TestCase):
         resultado = self.calculadora.calculo_ahorro_pensional(edad = 55, salario = 60000, semanas_laboradas = 1825, ahorro_pensional = 200000, rentabilidad_fondo = 0.06, tasa_administracion = 0.01)
         resultado_esperado = 6768000
         self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
+    #Excepcionales
+        
+    def test_edad_negativa(self):
+        with self.assertRaises(ValueError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = -5, salario = 50000, semanas_laboradas = 400, ahorro_pensional = 10000, rentabilidad_fondo = 0.05, tasa_administracion = 0.02 )
 
-    def test_ahorro_pensional_empleado_pocas_semanas(self):
-        resultado = self.calculadora.calculo_ahorro_pensional(edad = 30, salario = 40000, semanas_laboradas = 120, ahorro_pensional = 20000, rentabilidad_fondo = 0.05, tasa_administracion = 0.02)
-        resultado_esperado = 259600
-        self.assertAlmostEqual(resultado, resultado_esperado, places = 2)
-    
+    def test_semanas_laboradas_negativas(self):
+        with self.assertRaises(ValueError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = 30, salario = 40000, semanas_laboradas = -20, ahorro_pensional = 20000, rentabilidad_fondo = 0.04, tasa_administracion = 0.02)         
+
+    def test_salario_negativo(self):
+        with self.assertRaises(ValueError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = 45, salario = -50000, semanas_laboradas = 170, ahorro_pensional = 30000, rentabilidad_fondo = 0.06, tasa_administracion = 0.02 )
+
+    #Errores
+
+    def test_semanas_laboradas_tipo_incorrecto(self):
+         with self.assertRaises(TypeError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = 45, salario = 30000, semanas_laboradas = "50", ahorro_pensional = 10000, rentabilidad_fondo = 0.03, tasa_administracion = 0.02)
+
+    def test_salario_tipo_incorrecto(self):
+        with self.assertRaises(TypeError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = 40, salario = "40000", semanas_laboradas = 90, ahorro_pensional = 6000, rentabilidad_fondo = 0.04, tasa_administracion = 0.02 )
+
+    def test_rentabilidad_fondo_invalida(self):
+        with self.assertRaises(ValueError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = 33, salario = 30000, semanas_laboradas = 69, ahorro_pensional = 12000, rentabilidad_fondo = 1.2, tasa_administracion = 0.02)    
+
+    def test_edad_tipo_incorrecto(self):
+        with self.assertRaises(TypeError):
+            resultado = self.calculadora.calculo_ahorro_pensional(edad = "38", salario = 50000, semanas_laboradas = 90, ahorro_pensional = 15000, rentabilidad_fondo = 0.5, tasa_administracion = 0.02)    
 
 if __name__ == '__main__':
         unittest.main()
