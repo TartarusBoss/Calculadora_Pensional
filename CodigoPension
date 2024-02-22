@@ -3,17 +3,27 @@ class CalculadoraPensional:
     def calculo_ahorro_pensional(self, edad, salario, semanas_laboradas, ahorro_pensional, rentabilidad_fondo, tasa_administracion):
         if not isinstance(edad, int):
             raise TypeError("La edad debe ser un entero")
-        elif not isinstance(semanas_laboradas, (int, float)):
+        
+        if not isinstance(semanas_laboradas, (int, float)):
             raise TypeError("Las semanas laboradas deben ser numericas") 
-        elif not isinstance(salario, (int, float)):
+        
+        if not isinstance(salario, (int, float)):
             raise TypeError("El salario debe ser numérico")
-        elif rentabilidad_fondo < 0 or rentabilidad_fondo > 1:
+        
+        if rentabilidad_fondo < 0 or rentabilidad_fondo > 1:
             raise ValueError("La rentabilidad debe estar entre 0 y 1")
-        elif edad < 0 or edad > 100:
+        
+        if not isinstance(ahorro_pensional, (int, float)):
+            raise TypeError("El ahorro pensional debe ser numérico")
+        
+        if edad < 0 or edad > 100:
             raise ValueError("La edad no puede ser negativa ni mayor a 100")
-        elif semanas_laboradas <= 0:
+        
+        if semanas_laboradas <= 0:
             raise ValueError("Las semanas laboradas tienen que ser mayores a 0")
-        elif salario < 0:
+        
+        if salario < 0:
+            
             raise ValueError("El salario no puede ser negativo")
-        else:
-            return ahorro_pensional + (salario * semanas_laboradas * rentabilidad_fondo) - (tasa_administracion * ahorro_pensional)
+        
+        return (ahorro_pensional + salario * semanas_laboradas * rentabilidad_fondo) - (tasa_administracion * ahorro_pensional)
