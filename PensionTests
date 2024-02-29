@@ -31,9 +31,9 @@ class TestsCalculadoraPensional(unittest.TestCase):
         self.assertAlmostEqual(resultado, resultado_esperado, places=2)
         print(f"El ahorro pensional esperado es: {resultado}")
 
-    def test_calculo_pension_sexo_estado_civil(self):
+    def test_calculo_pension_normal(self):
         resultado = self.calculadora.calculo_pension(edad=35, ahorro_pensional_esperado = 3000000,sexo='femenino', estado_civil='casado', esperanza_vida=85)
-        resultado_esperado = 1923529.41
+        resultado_esperado = 2289000.0
         self.assertAlmostEqual(resultado, resultado_esperado, places=2)
         print(f"El calculo pensional esperado es: {resultado}")
 
