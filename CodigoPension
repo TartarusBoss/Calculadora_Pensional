@@ -1,43 +1,50 @@
 class CalculadoraPensional:
 
-    def calculo_ahorro_pensional(self, edad, salario, semanas_laboradas, ahorro_pensional, rentabilidad_fondo,
-                                 tasa_administracion):
+    def calculo_ahorro_pensional(self, edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion):
+        
+        if not isinstance(salario, (int, float)):
+            raise TypeError("El salario debe ser numérico: ")        
+    
+    
         if not isinstance(edad, int):
             raise TypeError("La edad debe ser un entero: ")
 
         if not isinstance(semanas_laboradas, (int, float)):
-            raise TypeError("Las semanas laboradas deben ser numericas: ")
-
-        if not isinstance(salario, (int, float)):
-            raise TypeError("El salario debe ser numérico: ")
+            raise TypeError("Las semanas laboradas deben ser numéricas.")
 
         if not isinstance(rentabilidad_fondo, (int, float)):
             raise TypeError("La rentabilidad debe ser numérica")
 
         if not isinstance(tasa_administracion, (int, float)):
-            raise TypeError("La tasa de administracion debe ser numérica")
+            raise TypeError("La tasa de administración debe ser numérica")
+        
 
         if rentabilidad_fondo < 0 or rentabilidad_fondo > 1:
             raise ValueError("La rentabilidad de fondo debe ser mayor a 0 y menor a 1")
 
-        if semanas_laboradas <= 0:
+        if semanas_laboradas < 0:
             raise ValueError("Las semanas laboradas tienen que ser mayores a 0: ")
-
-        if salario < 0:
-            raise ValueError("El salario no puede ser negativo: ")
-
-        ahorro_pensional_esperado = (ahorro_pensional + salario * semanas_laboradas * rentabilidad_fondo) - (
-                    tasa_administracion * ahorro_pensional)
+        
+        if edad <= 0:
+            raise ValueError("La edad debe ser mayor a 0")
+        
+        if salario <= 0:
+            raise ValueError("El salario tiene que ser mayor a 0 ")        
+        
+        aportes_mensuales = salario * 0.12  # 12% del salario como aporte mensual
+        ahorro_pensional_esperado = aportes_mensuales * semanas_laboradas * rentabilidad_fondo * (1 - tasa_administracion)
         return ahorro_pensional_esperado
 
+
     def calculo_pension(self, edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida):
+
 
         if not isinstance(sexo, str):
             raise TypeError("El sexo debe ser un string, no un número. debe ser 'masculino' o 'femenino'. ")
 
         if sexo not in ['masculino', 'femenino']:
             raise TypeError("El sexo debe ser 'masculino' o 'femenino'.")
-
+        
         if estado_civil not in ['casado', 'soltero']:
             raise TypeError("El estado civil debe ser 'casado' o 'soltero'.")
 
@@ -49,10 +56,14 @@ class CalculadoraPensional:
 
         if edad < 0:
             raise ValueError("La edad no puede ser negativa: ")
-
+        
+    
         if edad > 90:
             raise ValueError("La edad debe estar entre 1-90")
-
+        
+        if edad > esperanza_vida:
+            raise ValueError("La edad no puede ser mayor a la esperanza de vida")
+        
         if esperanza_vida < 0:
             raise ValueError("La esperanza de vida debe ser mayor a 0")
 
@@ -71,6 +82,7 @@ class CalculadoraPensional:
                 factor_sexo = 0.09
 
         # Fórmula final teniendo en cuenta sexo, estado civil y edad
-        pension_esperada = ahorro_pensional_esperado * (1 + factor_sexo) * (1 - edad / esperanza_vida)
+        pension_esperada = ahorro_pensional_esperado * (1 + factor_sexo) * (edad / (esperanza_vida - edad))
+
 
         return pension_esperada
