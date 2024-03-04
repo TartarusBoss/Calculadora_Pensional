@@ -1,5 +1,12 @@
 class CalculadoraPensional:
-    # ...
+
+    def errores_tipo_ahorro_pensional(self, edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion):
+            if not isinstance(salario, (int, float)):
+                raise TypeError("El salario debe ser numérico")       
+
+            if not isinstance(semanas_laboradas, (int, float)):
+                raise TypeError("Las semanas laboradas deben ser numericas. ")
+   
 
     def calculo_ahorro_pensional(self, edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion):
 
@@ -11,11 +18,10 @@ class CalculadoraPensional:
             mensaje_error += "El salario debe ser numérico. "        
      
         if not isinstance(edad, int):
-            mensaje_error += "La edad debe ser un entero. "
+            raise TypeError("La edad debe ser un entero")
 
         if not isinstance(semanas_laboradas, (int, float)):
-            mensaje_error += "Las semanas laboradas deben ser numéricas. "
-
+            raise TypeError("Las semanas laboradas deben ser numericas. ")
 
         if not isinstance(tasa_administracion, (int, float)):
             mensaje_error += "La tasa de administración debe ser numérica. "
@@ -32,10 +38,11 @@ class CalculadoraPensional:
         if salario <= 0:
             mensaje_error += "El salario debe ser mayor a 0. "     
 
+
         if mensaje_error:
-            return None, mensaje_error
-        else:
             return ahorro_pensional_esperado, mensaje_error
+        else:
+            return ahorro_pensional_esperado, None
 
 
 
@@ -93,8 +100,8 @@ class CalculadoraPensional:
         pension_esperada = ahorro_pensional_esperado * (1 + factor_sexo) * (edad / (esperanza_vida - edad))
 
         if mensaje_error:
-            return None, mensaje_error
-        else:
             return pension_esperada, mensaje_error
+        else:
+            return pension_esperada, ""
 
-        return f"La pensión esperada es: {pension_esperada}", mensaje_error
+        
