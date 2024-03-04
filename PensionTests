@@ -58,38 +58,38 @@ class TestsCalculadoraPensional(unittest.TestCase):
     # Excepcionales -> 7
 
     def test_edad_negativa_ahorro_pensional(self):
-        resultado = self.calculadora.calculo_ahorro_pensional(edad=-20, salario=1500000, semanas_laboradas=300, rentabilidad_fondo=0.05, tasa_administracion=0.02)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_ahorro_pensional(edad=-20, salario=1500000, semanas_laboradas=300, rentabilidad_fondo=0.05, tasa_administracion=0.02)
+        print(f"El ahorro pensional es: {resultado}, {mensaje_error}")
 
     def test_semanas_laboradas_negativas_ahorro_pensional(self):
-        resultado = self.calculadora.calculo_ahorro_pensional(edad=30, salario=2300000, semanas_laboradas=-200, rentabilidad_fondo=0.04,tasa_administracion=0.02)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_ahorro_pensional(edad=30, salario=2300000, semanas_laboradas=-200, rentabilidad_fondo=0.04,tasa_administracion=0.02)
+        print(f"El ahorro pensional es: {resultado}, {mensaje_error}")
 
     def test_edad_mayor_esperanza_vida_calculo_pension(self):
-        resultado = self.calculadora.calculo_pension(edad=45, ahorro_pensional_esperado=900000, sexo='masculino',estado_civil='soltero', esperanza_vida=40)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_pension(edad=45, ahorro_pensional_esperado=900000, sexo='masculino',estado_civil='soltero', esperanza_vida=40)
+        print(f"El calculo pensional es: {resultado}, {mensaje_error}")
 
     def test_salario_cero_ahorro_pensional(self):
-        resultado = self.calculadora.calculo_ahorro_pensional(edad=45, salario=0, semanas_laboradas=170, rentabilidad_fondo=0.06,tasa_administracion=0.02)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_ahorro_pensional(edad=45, salario=0, semanas_laboradas=170, rentabilidad_fondo=0.06,tasa_administracion=0.02)
+        print(f"El ahorro pensional es: {resultado}, {mensaje_error}")
 
     def test_edad_negativa_calculo_pension(self):
-        resultado = self.calculadora.calculo_pension(edad=-45, ahorro_pensional_esperado=5000000, sexo='masculino',estado_civil='soltero', esperanza_vida=80)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_pension(edad=-45, ahorro_pensional_esperado=5000000, sexo='masculino',estado_civil='soltero', esperanza_vida=80)
+        print(f"El calculo pensional es: {resultado}, {mensaje_error}")
 
     def test_edad_muy_alta_calculo_pension(self):
-        resultado = self.calculadora.calculo_pension(edad=91, ahorro_pensional_esperado=1200000, sexo='masculino',estado_civil='soltero', esperanza_vida=100)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_pension(edad=91, ahorro_pensional_esperado=1200000, sexo='masculino',estado_civil='soltero', esperanza_vida=100)
+        print(f"El calculo pensional es: {resultado}, {mensaje_error}")
 
     def test_esperanza_vida_negativa_calculo_pension(self):
-        resultado = self.calculadora.calculo_pension(edad=50, ahorro_pensional_esperado=2000000, sexo='masculino',estado_civil='soltero', esperanza_vida=-67)
-        print(resultado)
+        resultado, mensaje_error = self.calculadora.calculo_pension(edad=50, ahorro_pensional_esperado=2000000, sexo='masculino',estado_civil='soltero', esperanza_vida=-67)
+        print(f"El calculo pensional es: {resultado}, {mensaje_error}")
 
         # Errores -> 8
 
     def test_semanas_laboradas_tipo_incorrecto_ahorro_pensional(self):
         try:
-            resultado = self.calculadora.calculo_ahorro_pensional(edad=45, salario=3000000, semanas_laboradas="10", rentabilidad_fondo=0.03,tasa_administracion=0.02)
+            resultado = self.calculadora.errores_tipo_ahorro_pensional(edad=45, salario=3000000, semanas_laboradas="10", rentabilidad_fondo=0.03,tasa_administracion=0.02)
         except TypeError as a:
             print(f"Excepción capturada: {a}")
         else:
@@ -97,7 +97,7 @@ class TestsCalculadoraPensional(unittest.TestCase):
 
     def test_salario_tipo_incorrecto_ahorro_pensional(self):
         try:
-            resultado = self.calculadora.calculo_ahorro_pensional(edad=40, salario="400000", semanas_laboradas=90, rentabilidad_fondo=0.04,tasa_administracion=0.02)
+            resultado = self.calculadora.errores_tipo_ahorro_pensional(edad=40, salario="400000", semanas_laboradas=90, rentabilidad_fondo=0.04,tasa_administracion=0.02)
         except TypeError as a:
             print(f"Excepcion capturada: {a}")
         else:
