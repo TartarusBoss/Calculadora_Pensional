@@ -1,7 +1,12 @@
 import unittest
 import sys
-sys.path.append("src")
+import sys
+sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional")  
 from src.CodigoPension import CalculadoraPensional
+
+
+from src.CodigoPension import CalculadoraPensional
+
 
 
 
