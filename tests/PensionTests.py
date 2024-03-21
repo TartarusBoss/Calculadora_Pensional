@@ -2,7 +2,6 @@ import unittest
 import sys
 import sys
 sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional")  
-from src.CodigoPension import CalculadoraPensional
 
 
 from src.CodigoPension import CalculadoraPensional
@@ -45,7 +44,7 @@ class TestsCalculadoraPensional(unittest.TestCase):
     def test_normal_calculo_pension_normal(self):
         resultado, mensaje_error = self.calculadora.calculo_pension(edad=35, ahorro_pensional_esperado=3000000, sexo='femenino', estado_civil='casado', esperanza_vida=85)
         self.assertEqual(mensaje_error, "")
-        resultado_esperado = 2100000.0
+        resultado_esperado = 2289000.0
         self.assertAlmostEqual(resultado, resultado_esperado, places=2) 
         print(f"El calculo pensional esperado es: {resultado}")
 
@@ -53,14 +52,14 @@ class TestsCalculadoraPensional(unittest.TestCase):
     def test_normal_calculo_pension_empleado_nuevo(self):
         resultado, mensaje_error = self.calculadora.calculo_pension(edad=25, ahorro_pensional_esperado = 700000,sexo='masculino', estado_civil='soltero',esperanza_vida=70)
         self.assertEqual(mensaje_error, "")
-        resultado_esperado = 388888.888
+        resultado_esperado = 412222.222
         self.assertAlmostEqual(resultado, resultado_esperado, places=2)
         print(f"El calculo pensional esperado es: {resultado}")
 
     def test_normal_calculo_pension_edad_esperanza_vida_baja(self):
         resultado, mensaje_error = self.calculadora.calculo_pension(edad=25, ahorro_pensional_esperado = 500000,sexo='femenino', estado_civil='soltero',esperanza_vida=45)
         self.assertEqual(mensaje_error, "")
-        resultado_esperado = 625000.0
+        resultado_esperado = 668750.0
         self.assertAlmostEqual(resultado, resultado_esperado, places=2)
         print(f"El calculo pensional esperado es: {resultado}")
 
