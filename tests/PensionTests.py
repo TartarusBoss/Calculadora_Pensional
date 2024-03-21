@@ -1,5 +1,8 @@
 import unittest
+import sys
+sys.path.append("src")
 from src.CodigoPension import CalculadoraPensional
+
 
 
 class TestsCalculadoraPensional(unittest.TestCase):
