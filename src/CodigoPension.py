@@ -1,5 +1,7 @@
 class CalculadoraPensional:
 
+
+    #Almacenamos los mensajes y validaciones de ahorro pensional en una sola clase
     def validaciones_tipo_ahorro_pensional(self, edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion):
         mensaje_error = ""
 
@@ -28,7 +30,9 @@ class CalculadoraPensional:
             mensaje_error += "El salario debe ser mayor a 0. "
 
         return mensaje_error
-
+    
+    
+    #Almacenamos los mensajes y validaciones de calculo pensional en una sola clase
     def validaciones_tipo_calculo_pension(self, edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida):
         mensaje_error = ""
 
@@ -66,16 +70,20 @@ class CalculadoraPensional:
             mensaje_error += "La esperanza de vida debe ser mayor a 0. "
 
         return mensaje_error
+    
 
+    #Método que se encargad del cálculo del ahorro pensional y recoge el mensaje de error en las validaciones de tipo
     def calculo_ahorro_pensional(self, edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion):
         mensaje_error = self.validaciones_tipo_ahorro_pensional(edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion)
         aportes_mensuales = salario * 0.12
         ahorro_pensional_esperado = aportes_mensuales * semanas_laboradas * rentabilidad_fondo * (1 - tasa_administracion)
 
+    #Si se devuelve un mensaje de error, se muestra con el cálculo, sino solo se devuelve el cálculo
         if mensaje_error:
             return ahorro_pensional_esperado, mensaje_error
         return ahorro_pensional_esperado, None
 
+    #Método con el calculo de la pension, que recoge un mensaje de error de las validaciones, si hay mensajed de error se devuelve con el cálculo, sino solo el calculo
     def calculo_pension(self, edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida):
         mensaje_error = self.validaciones_tipo_calculo_pension(edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida)
         factor_sexo = 0
