@@ -87,7 +87,7 @@ class CalculadoraPensional:
     def calculo_pension(self, edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida):
         mensaje_error = self.validaciones_tipo_calculo_pension(edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida)
         factor_sexo = 0
-        pension_esperada = ahorro_pensional_esperado * (1 + factor_sexo) * (edad / (esperanza_vida - edad)) 
+        
         
 
         if sexo == 'masculino':
@@ -101,6 +101,7 @@ class CalculadoraPensional:
             elif estado_civil == 'casado':
                 factor_sexo = 0.09
 
+        pension_esperada = ahorro_pensional_esperado * (1 + factor_sexo) * (edad / (esperanza_vida - edad)) 
 
         if mensaje_error:
             return pension_esperada, mensaje_error
