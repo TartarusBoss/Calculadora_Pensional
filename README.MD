@@ -43,6 +43,9 @@ El proyecto utiliza una sola biblioteca de Python para su funcionamiento, la cu√
 - Clonar el repositorio.
 - Ejecutar el archivo main.py.
 
+## Para ejecutar las pruebas
+- Debido a un error con la carpeta src, no se puede ejecutar las pruebas por consola parcialmente, con la biblioteca unittest se ejecutan todas, son 3 tipos de tests
+
 ## Licencia
 Este proyecto est√° bajo la licencia MIT.
 
