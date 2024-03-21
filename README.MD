@@ -44,7 +44,9 @@ El proyecto utiliza una sola biblioteca de Python para su funcionamiento, la cu√
 - Ejecutar el archivo main.py.
 
 ## Para ejecutar las pruebas
-- Debido a un error con la carpeta src, no se puede ejecutar las pruebas por consola parcialmente, con la biblioteca unittest se ejecutan todas, son 3 tipos de tests
+- Agregar la carpeta que contiene el proyectoc al path usando -> sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional")  
+- Importar la clase de CalculadoraPensional -> from src.CodigoPension import CalculadoraPensional
+- Correr las pruebas con python -m unittest discover
 
 ## Licencia
 Este proyecto est√° bajo la licencia MIT.
