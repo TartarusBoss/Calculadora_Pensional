@@ -5,9 +5,7 @@ def main():
 
     print("Bienvenido a la calculadora pensional")
 
-
-
-    #Inicializamos el menú con 3 opciones
+    """Inicializamos el menú con 3 opciones"""
     while True:
         print("\nSeleccione una opción: ")
         print("1. Calcular ahorro pensional. ")
@@ -16,7 +14,7 @@ def main():
 
         opcion = input("Ingrese el número de la opción que desea: ")
 
-    #En este try se intenta retornar el ahorro pensional, y si hay mensaje de error también se retorna
+        """En este try se intenta retornar el ahorro pensional, y si hay mensaje de error también se retorna"""
         if opcion == "1":
             try:
                 edad = int(input("Ingrese su edad: "))
@@ -34,7 +32,7 @@ def main():
             except (ValueError, TypeError) as e:
                 print(f"Error, Ha ingresado un dato inválido. {e}")
                 
-    #En este try se maneja el calculo pensional de la misma manera, se retorna la pension y si hay mensaje de error, también lo hace
+            """En este try se maneja el calculo pensional de la misma manera, se retorna la pension y si hay mensaje de error, también lo hace"""
         elif opcion == "2":
             try:
                 edad = int(input("Ingrese su edad: "))
