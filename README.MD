@@ -44,9 +44,12 @@ El proyecto utiliza una sola biblioteca de Python para su funcionamiento, la cu�
 - Ejecutar el archivo main.py.
 
 ## Para ejecutar las pruebas
-- Agregar la carpeta que contiene el proyectoc al path usando -> sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional")  
-- Importar la clase de CalculadoraPensional -> from src.CodigoPension import CalculadoraPensional
-- Correr las pruebas con python -m unittest discover
+- Agregar la carpeta que contiene el proyectoc al path usando -> sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional") 
+- IMPORTANTE - Tener en cuenta que está ruta en el código: sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional") tiene que
+ser personalizada, coloca la ruta en la cuál está ubicado el código en tu propio PC
+- Por ejemplo en mi caso, cambié esa instrucción por sys.path.append("C:/Users/ASUS/PycharmProjects/Calculadora_Pensional")
+- Abrir la terminal o cmd, cd hasta la carpeta de tests (Donde esté ubicado en tu PC)
+- Correr las pruebas con la instruccción python PensionTests.py
 
 ## Licencia
 Este proyecto está bajo la licencia MIT.
