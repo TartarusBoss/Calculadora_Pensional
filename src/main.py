@@ -7,7 +7,7 @@ def main():
 
     """Inicializamos el menú con 3 opciones"""
     while True:
-        print("\nSeleccione una opción: ")
+        print("\nSeleccione una opción: prueba")
         print("1. Calcular ahorro pensional. ")
         print("2. Calcular pensión. ")
         print("3. Salir")
@@ -26,7 +26,7 @@ def main():
                 ahorro_pensional, mensaje_error = calculadora.calculo_ahorro_pensional(edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion)
 
                 if ahorro_pensional is not None:
-                    print(f"El ahorro pensional esperado es: {ahorro_pensional}")
+                    print(f"El ahorro pensional esperado es: {ahorro_pensional}, {mensaje_error}")
                 else: 
                     print(f"Error en el cálculo del ahorro pensional: {mensaje_error}")
             except (ValueError, TypeError) as e:
@@ -44,7 +44,7 @@ def main():
                 pension, mensaje_error = calculadora.calculo_pension(edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida)            
 
                 if pension is not None:
-                    print(f"La pensión esperada es: {pension}")
+                    print(f"La pensión esperada es: {pension}, {mensaje_error}")
                 else:
                     print(f"Error en el cálculo de la pensión: {mensaje_error}")
             except (ValueError, TypeError) as e:
