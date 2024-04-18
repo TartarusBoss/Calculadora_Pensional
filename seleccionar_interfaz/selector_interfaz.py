@@ -14,5 +14,5 @@ def seleccionar_interfaz(opcion):
         print("Opción inválida. Por favor, seleccione 1 o 2.")
 
 if __name__ == "__main__":
-    opcion = input("Seleccione una opción (1 para interfaz por consola, 2 para interfaz gráfica): ")
+    opcion = input("Seleccione una opción: (1 para interfaz por consola, 2 para interfaz gráfica): ")
     seleccionar_interfaz(opcion)
