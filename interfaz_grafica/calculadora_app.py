@@ -4,6 +4,8 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.utils import get_color_from_hex
+from kivy.core.window import Window
 
 import sys
 sys.path.append("C:/Users/ASUS/Calculadora_Pensional-2")
@@ -14,7 +16,7 @@ class InterfazCalculadora(GridLayout):
     def __init__(self, **kwargs):
         super(InterfazCalculadora, self).__init__(**kwargs)
         self.cols = 1
-        
+        Window.clearcolor = get_color_from_hex("#006400")
         self.calculadora = CalculadoraPensional()
         self.estado_calculo = 'ahorro'
         
