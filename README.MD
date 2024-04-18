@@ -21,7 +21,7 @@ El proyecto utiliza una tres bibliotecas de Python para su funcionamiento, las c
 
 
 
-### IMPORTANTE:
+### IMPORTANTE:  -------> Tutorial de instalación: https://youtu.be/QbtQUw8Toc8
 Al ser un proyecto modular, puede que hayan mínimos inconvenientes con las carpetas o módulos, especialmente errores encontrando los módulos, para manejar eso utilizamos sys
 En el archivo interfaz_grafica/calculadora_app; se utiliza sys.path.append("C:/Users/ASUS/Calculadora_Pensional-2") para agregar la carpeta en la que está ubicado el archivo al path.
 Dicho paso es obligatorio, ten en cuenta que tienes que reemplazar la ruta "C:/Users/ASUS/Calculadora_Pensional-2" por la ruta en la cual está ubicado el proyecto localmente, lo mismo con seleccionar_interfaz/selector_interfaz -> repetir el mismo paso (cambiar la ruta por la que está en tu PC) igualmente con src/main.py y tests/PensionTests.py
