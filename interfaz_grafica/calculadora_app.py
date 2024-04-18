@@ -38,11 +38,11 @@ class InterfazCalculadora(GridLayout):
         self.add_widget(self.botones)
         
         # Campos de texto para la entrada de datos
-        self.edad_input = TextInput(multiline=False, hint_text='Edad')
+        self.edad_input = TextInput(multiline=False, hint_text='Edad (1-90)')
         self.salario_input = TextInput(multiline=False, hint_text='Salario mensual')
         self.semanas_input = TextInput(multiline=False, hint_text='Número de semanas laboradas')
-        self.rentabilidad_input = TextInput(multiline=False, hint_text='Rentabilidad del fondo')
-        self.tasa_input = TextInput(multiline=False, hint_text='Tasa de administración')
+        self.rentabilidad_input = TextInput(multiline=False, hint_text='Rentabilidad del fondo (Como decimal: 0.03)')
+        self.tasa_input = TextInput(multiline=False, hint_text='Tasa de administración (Como decimal 0.02)')
         self.add_widget(self.edad_input)
         self.add_widget(self.salario_input)
         self.add_widget(self.semanas_input)
@@ -78,17 +78,17 @@ class InterfazCalculadora(GridLayout):
 
     def actualizar_labels_campos_texto(self, tipo_calculo):
         if tipo_calculo == 'ahorro':
-            self.edad_input.hint_text = 'Edad'
+            self.edad_input.hint_text = 'Edad (1-90)'
             self.salario_input.hint_text = 'Salario mensual'
             self.semanas_input.hint_text = 'Número de semanas laboradas'
-            self.rentabilidad_input.hint_text = 'Rentabilidad del fondo'
-            self.tasa_input.hint_text = 'Tasa de administración'
+            self.rentabilidad_input.hint_text = 'Rentabilidad del fondo (Como decimal 0.04)'
+            self.tasa_input.hint_text = 'Tasa de administración (Como decimal 0.02)'
         elif tipo_calculo == 'pension':
-            self.edad_input.hint_text = 'Edad'
+            self.edad_input.hint_text = 'Edad (1-90)'
             self.salario_input.hint_text = 'Ahorro pensional esperado'
             self.semanas_input.hint_text = 'Esperanza de vida'
-            self.rentabilidad_input.hint_text = 'Sexo'
-            self.tasa_input.hint_text = 'Estado civil'
+            self.rentabilidad_input.hint_text = 'Sexo (masculino o femenino)'
+            self.tasa_input.hint_text = 'Estado civil (soltero o casado)'
 
     def salir(self, instance):
         App.get_running_app().stop()
@@ -104,10 +104,10 @@ class InterfazCalculadora(GridLayout):
 
                 ahorro_pensional, mensaje_error = self.calculadora.calculo_ahorro_pensional(edad, salario, semanas_laboradas, rentabilidad_fondo, tasa_administracion)
 
-                if ahorro_pensional is not None and isinstance(ahorro_pensional, (int, float)):
-                    self.resultado_o_error_label.text = f"El ahorro pensional esperado es: {ahorro_pensional}"
-                else: 
-                    self.resultado_o_error_label.text = f"Error en el cálculo del ahorro pensional: {mensaje_error}"
+                if mensaje_error:
+                    self.resultado_o_error_label.text = mensaje_error
+                else:
+                    self.resultado_o_error_label.text = f"El ahorro pensional esperado es: {ahorro_pensional}, {mensaje_error}"
             elif self.estado_calculo == 'pension':
                 edad = int(self.edad_input.text)
                 ahorro_pensional_esperado = float(self.salario_input.text)         
@@ -117,12 +117,15 @@ class InterfazCalculadora(GridLayout):
 
                 pension, mensaje_error = self.calculadora.calculo_pension(edad, ahorro_pensional_esperado, sexo, estado_civil, esperanza_vida)            
 
-                if pension is not None and isinstance(pension, (int, float)):
-                    self.resultado_o_error_label.text = f"La pensión esperada es: {pension}"
+                if mensaje_error:
+                    self.resultado_o_error_label.text = mensaje_error
                 else:
-                    self.resultado_o_error_label.text = f"Error en el cálculo de la pensión: {mensaje_error}"
+                    self.resultado_o_error_label.text = f"La pensión esperada es: {pension}, {mensaje_error}"
         except (ValueError, TypeError) as e:
-            self.resultado_o_error_label.text = f"Error, Ha ingresado un dato inválido. {e}"
+            self.resultado_o_error_label.text = f"Error, Ha ingresado un dato inválido: {e}"
+        except Exception as e:
+            self.resultado_o_error_label.text = f"Error: {str(e)}"
+
 
 
 class CalculadoraPensionalApp(App):
