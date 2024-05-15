@@ -2,7 +2,7 @@
 Calculadora pensional
 
 # Desarrolladores
-Matías Herrera - Daniel Alzate   
+Matías Herrera
 Estudiantes de ingeniería en sistemas - UdeM  
 Entrega #3 de Código Limpio
 
