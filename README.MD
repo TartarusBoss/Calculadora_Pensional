@@ -21,11 +21,11 @@ El proyecto utiliza una tres bibliotecas de Python para su funcionamiento, las c
 
 
 
-### IMPORTANTE:  -------> Tutorial de instalación: https://youtu.be/QbtQUw8Toc8
+### IMPORTANTE:  
 Al ser un proyecto modular, puede que hayan mínimos inconvenientes con las carpetas o módulos, especialmente errores encontrando los módulos, para manejar eso utilizamos sys
-En el archivo interfaz_grafica/calculadora_app; se utiliza sys.path.append("C:/Users/ASUS/Calculadora_Pensional-2") para agregar la carpeta en la que está ubicado el archivo al path.
-Dicho paso es obligatorio, ten en cuenta que tienes que reemplazar la ruta "C:/Users/ASUS/Calculadora_Pensional-2" por la ruta en la cual está ubicado el proyecto localmente, lo mismo con seleccionar_interfaz/selector_interfaz -> repetir el mismo paso (cambiar la ruta por la que está en tu PC) igualmente con src/main.py y tests/PensionTests.py
-
+En los archivos app_controller, consola_controlador, consola_aplicacion, calculadora_app, ControladorTests y PensionTests se debe agregar la ruta en la cual descargaste el repositorio, en mi caso es esta
+sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3")
+Dicho paso es obligatorio, ten en cuenta que tienes que reemplazar la ruta "C:/Users/ASUS/Calculadora_Pensional-3" por la ruta en la cual está ubicado el proyecto localmente en tu computador, el problema ahí es que intentamos usar la ruta "../Calculadora-Pensional-3" Que se supone que agrega todo el directorio, pero se bugea con el src, por lo tanto es obligatorio hacer el paso anterior
 
 
 # Instrucciones de uso
@@ -33,40 +33,42 @@ Dicho paso es obligatorio, ten en cuenta que tienes que reemplazar la ruta "C:/U
 - Tener instalado Python en el sistema.
 - Darle al botón de "Code" en el repositorio, descargar el código de Github en formato ZIP: [Repositorio en Github](https://github.com/TartarusBoss/Calculadora_Pensional.git)
 - Extraer el ZIP y abrir la carpeta.
-- Ya ubicados en la carpeta llamada "Calculadora_Pensional" damos clic al archivo "selector_interfaz.py".
-- Digitar la opción que desea, (1 para consola, 2 para interfaz gráfica).
-- Disfrute del programa!
+- Ya ubicados en la carpeta llamada "Calculadora_Pensional-3" copiamos la ruta del directorio
 
 ## Para ejecutarlo desde consola (CMD)
 - Abrir la consola o terminal.
-- Cambiarse al directorio donde está ubicado el script "selector_interfaz" (Está en la carpeta del ZIP previamente extraído). En mi caso es este: `C:\Users\ASUS\Calculadora_Pensional`,
-dicho paso se hace de la siguiente manera -> cd C:\Users\ASUS\Calculadora_Pensional-2
-- Para ejecutar el programa se escribe: `python selector_interfaz.py`.
-- Interactuar con la interfaz (seleccione la interfaz que desee.
+- Cambiarse al directorio donde está ubicado el script que desea ejecutar. En mi caso es este: `C:\Users\ASUS\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-3`,
+dicho paso se hace de la siguiente manera -> cd C:\Users\ASUS\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-3
+- Para ejecutar la consola del programa vamos al directorio console asi -> cd C:\Users\ASUS\testCalculadora\Calculadora_Pensional-3\src\view\console (No olvides cambiar tu ruta), y ejecutamos consola_aplicacion asi ->  python consola_aplicacion.py, ahi podrás interactuar con la consola
+- Para ejecutar la consola del controlador (base de datos) es en el mismo directorio que la consola de la aplicación, solo que ejecutaremos un archivo distinto, en este caso se coloca python consola_controlador.py. posteriormente podrás interactuar con la consola de la base de datos
+- Para ejecutar la interfaz gráfica del programa hay que moverse al directorio donde está ubicado el archivo, que sería "interface", se escribe cd C:\Users\ASUS\testCalculadora\Calculadora_Pensional-3\src\view\interface (NO OLVIDES REEMPLAZAR TU RUTA), posteriormente se escribe python calculadora_app.py y se interactua con la consola
 
 ## Para ejecutarlo desde VsCode (u otro editor)
 - Instalar y extraer el Zip del proyecto.
 - Abrir con el editor.
-- Ejecutar el archivo de selector_interfaz para la interfaz, y el de PensionTests para las pruebas.
+- Ejecutar el archivo deseado
 
 ## Para clonarlo
 - Presionar el botón "Code" en el repositorio y copiar el enlace.
 - Clonar el repositorio.
-- Ejecutar el archivo main.py.
 
-## Para ejecutar las pruebas
-- Agregar la carpeta que contiene el proyecto al path usando -> sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional") 
-- IMPORTANTE - Tener en cuenta que está ruta en el código: sys.path.append("C:/Users/b12s304.B12_304_01/Calculadora_Pensional") tiene que
+## Para ejecutar las pruebas del programa
+Cambiar la carpeta que contiene el proyecto al path usando -> sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3") 
+- IMPORTANTE - Tener en cuenta que está ruta en el código: sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3") tiene que
 ser personalizada, coloca la ruta en la cuál está ubicado el código en tu propio PC
-- Por ejemplo en mi caso, cambié esa instrucción por sys.path.append("C:/Users/ASUS/PycharmProjects/Calculadora_Pensional")
-- Abrir la terminal o cmd, cd hasta la carpeta de tests (Donde esté ubicado en tu PC) -> En mi caso: cd C:\Users\ASUS\Calculadora_Pensional-2/tests
+- Por ejemplo en mi caso, cambié esa instrucción por sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3")
+- Abrir la terminal o cmd, cd hasta la carpeta de tests (Donde esté ubicado en tu PC) -> En mi caso: cd C:\Users\ASUS\Calculadora_Pensional-3/tests
 - Correr las pruebas con la instruccción python PensionTests.py
+
+## Para ejecutar las pruebas del controlador
+- Nos movemos al directorio donde están ubicadas nuestras pruebas, en mi caso es cd C:\Users\ASUS\testCalculadora\Calculadora_Pensional-3\tests\    -> Escribimos ControladorTests.py y esperamos a que carguen
+-Visualizar las pruebas
+
 
 ## Licencia
 Este proyecto está bajo la licencia MIT.
 
 ## Contactos
 - Matías Herrera: Estudiante Ing. Sistemas
-- Daniel Alzate: Estudiante Ing. Sistemas
 
 ¡Gracias!
