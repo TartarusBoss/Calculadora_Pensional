@@ -39,6 +39,7 @@ Dicho paso es obligatorio, ten en cuenta que tienes que reemplazar la ruta "C:/U
 - Abrir la consola o terminal.
 - Cambiarse al directorio donde está ubicado el script que desea ejecutar. En mi caso es este: `C:\Users\ASUS\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-3`,
 dicho paso se hace de la siguiente manera -> cd C:\Users\ASUS\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-3
+- Antes de ejecutar cualquier archivo, debes agregar el path, eso se hace de la siguiente manera: set PYTHONPATH= (Ubicación donde está ubicada la carpeta clonada) , por ejemplo asi set PYTHONPATH=C:\Users\b12s208\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-main
 - Para ejecutar la consola del programa vamos al directorio console asi -> cd C:\Users\ASUS\testCalculadora\Calculadora_Pensional-3\src\view\console (No olvides cambiar tu ruta), y ejecutamos consola_aplicacion asi ->  python consola_aplicacion.py, ahi podrás interactuar con la consola
 - Para ejecutar la consola del controlador (base de datos) es en el mismo directorio que la consola de la aplicación, solo que ejecutaremos un archivo distinto, en este caso se coloca python consola_controlador.py. posteriormente podrás interactuar con la consola de la base de datos
 - Para ejecutar la interfaz gráfica del programa hay que moverse al directorio donde está ubicado el archivo, que sería "interface", se escribe cd C:\Users\ASUS\testCalculadora\Calculadora_Pensional-3\src\view\interface (NO OLVIDES REEMPLAZAR TU RUTA), posteriormente se escribe python calculadora_app.py y se interactua con la consola
@@ -60,9 +61,13 @@ ser personalizada, coloca la ruta en la cuál está ubicado el código en tu pro
 - Abrir la terminal o cmd, cd hasta la carpeta de tests (Donde esté ubicado en tu PC) -> En mi caso: cd C:\Users\ASUS\Calculadora_Pensional-3/tests
 - Correr las pruebas con la instruccción python PensionTests.py
 
-## Para ejecutar las pruebas del controlador
-- Nos movemos al directorio donde están ubicadas nuestras pruebas, en mi caso es cd C:\Users\ASUS\testCalculadora\Calculadora_Pensional-3\tests\    -> Escribimos ControladorTests.py y esperamos a que carguen
--Visualizar las pruebas
+#Otra forma de ejecutar las pruebas
+- Abrir el cmd
+- Cambiarse al lugar donde esté ubicada la carpeta tests, se hace con cd (Ubicacion de carpeta tests), por ejemplo cd C:\Users\b12s208\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-main\tests
+- Ejecutar el comando de set PYTHONPATH = (Ubicacion de la carpeta clonada) por ejemplo así set PYTHONPATH=C:\Users\b12s208\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-main
+- Para correr los tests del controlador, se hace con python ControladorTests.py
+- Para correr los tests de la calculadora, es con python PensionTests.py
+
 
 
 ## Licencia
