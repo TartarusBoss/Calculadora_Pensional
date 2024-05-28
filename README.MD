@@ -1,8 +1,8 @@
 # Título del proyecto
 Calculadora pensional
 
-# Desarrolladores
-Matías Herrera - Daniel Alzate   
+# Desarrollador
+Matías Herrera 
 Estudiantes de ingeniería en sistemas - UdeM  
 Entrega #3 de Código Limpio
 
@@ -28,7 +28,8 @@ sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3")
 Dicho paso es obligatorio, ten en cuenta que tienes que reemplazar la ruta "C:/Users/ASUS/Calculadora_Pensional-3" por la ruta en la cual está ubicado el proyecto localmente en tu computador, el problema ahí es que intentamos usar la ruta "../Calculadora-Pensional-3" Que se supone que agrega todo el directorio, pero se bugea con el src, por lo tanto es obligatorio hacer el paso anterior
 
 
-# Instrucciones de uso
+# Instrucciones de uso -> Si quiere ver un video que explique como ejecutar el programa, este es el enlace: https://www.youtube.com/watch?v=idSc0XkBJyI&ab_channel=Tartaru%24
+
 ## Para ejecutar el código sin editor de código
 - Tener instalado Python en el sistema.
 - Darle al botón de "Code" en el repositorio, descargar el código de Github en formato ZIP: [Repositorio en Github](https://github.com/TartarusBoss/Calculadora_Pensional.git)
@@ -54,14 +55,11 @@ dicho paso se hace de la siguiente manera -> cd C:\Users\ASUS\Downloads\Calculad
 - Clonar el repositorio.
 
 ## Para ejecutar las pruebas del programa
-Cambiar la carpeta que contiene el proyecto al path usando -> sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3") 
-- IMPORTANTE - Tener en cuenta que está ruta en el código: sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3") tiene que
-ser personalizada, coloca la ruta en la cuál está ubicado el código en tu propio PC
-- Por ejemplo en mi caso, cambié esa instrucción por sys.path.append("C:/Users/ASUS/testCalculadora/Calculadora_Pensional-3")
 - Abrir la terminal o cmd, cd hasta la carpeta de tests (Donde esté ubicado en tu PC) -> En mi caso: cd C:\Users\ASUS\Calculadora_Pensional-3/tests
-- Correr las pruebas con la instruccción python PensionTests.py
+- Correr las pruebas con la instruccción python PensionTests.py (Si quiere ejecutar las pruebas del programa)
+- Correr las pruebas con la instruccción python ControladorTests.py (Si quiere ejecutar las pruebas del controlador)
 
-#Otra forma de ejecutar las pruebas
+#Otra forma de ejecutar las pruebas por si no funciona la anterior
 - Abrir el cmd
 - Cambiarse al lugar donde esté ubicada la carpeta tests, se hace con cd (Ubicacion de carpeta tests), por ejemplo cd C:\Users\b12s208\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-main\tests
 - Ejecutar el comando de set PYTHONPATH = (Ubicacion de la carpeta clonada) por ejemplo así set PYTHONPATH=C:\Users\b12s208\Downloads\Calculadora_Pensional-main\Calculadora_Pensional-main
